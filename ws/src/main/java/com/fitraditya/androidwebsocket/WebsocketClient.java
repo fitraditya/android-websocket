@@ -155,9 +155,13 @@ public class WebsocketClient {
                     boolean validated = false;
                     Map<String ,String> headers = parseHeaders(stream);
 
-                    if (headers.containsKey("Sec-WebSocket-Accept") == true) {
+                    if (headers.containsKey("Sec-WebSocket-Accept") == true || headers.containsKey("Sec-Websocket-Accept") == true) {
                         String expected = createSecretValidation(secret);
                         String actual = headers.get("Sec-WebSocket-Accept");
+
+                        if (actual == null) {
+                            actual = headers.get("Sec-Websocket-Accept");
+                        }
 
                         if (!expected.equals(actual)) {
                             throw new HttpException("Bad Sec-WebSocket-Accept header value.");
