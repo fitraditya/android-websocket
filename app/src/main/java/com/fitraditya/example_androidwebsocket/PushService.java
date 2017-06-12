@@ -25,7 +25,7 @@ public class PushService extends Service implements WebsocketClient.WebsocketLis
     private static final String ACTION_PING = "WS_SVC.ACTION_PING";
     private static final String ACTION_CONNECT = "WS_SVC.ACTION_CONNECT";
     private static final String ACTION_SHUT_DOWN = "WS_SVC.ACTION_SHUT_DOWN";
-    private static final String WS_SERVER = "wss://echo.websocket.org";
+    private static final String WS_SERVER = "wss://qiscusrtc-hub.herokuapp.com/mobile";
 
     private final IBinder iBinder = new ServiceBinder();
     private WebsocketClient websocketClient;
